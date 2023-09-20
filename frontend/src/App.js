@@ -37,7 +37,13 @@ function App() {
     })
     .then(retorno => retorno.json())
     .then(retorno_convertido => {
-      console.log(retorno_convertido)
+      
+      if(retorno_convertido.mensagem !== undefined){
+        alert(retorno_convertido.mensagem);
+      }else{
+        setProdutos([...produtos, retorno_convertido]);
+        alert('Produto Cadastro com Sucesso');
+      }
     })
   }
 
